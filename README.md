@@ -162,7 +162,4 @@ Overall, this structure enables you to automatically create a tenant’s environ
 
 ## License
 MIT License
-
 ---
-
-This README provides a concise explanation of the sample code and the overall design of the MIXXCLOUD project. Adjust any sections as needed to better fit your project details.
