@@ -60,8 +60,8 @@ MIXXCLOUD includes a CLI tool (built with Python and Click) that allows tenants 
 The CLI also supports a YAML-based topology file to automate infrastructure creation. For example:
 
 ```yaml
-T1: 
-  V1: 
+Tenant_name: 
+  VPC_name: 
     lb:  
       name: app 
       type: IAAS 
@@ -76,6 +76,21 @@ T1:
             region: east 
             weight: 1 
           - name: A2 
+            image: zecaro/php-info 
+            vcpu: 1 
+            mem: 1024m 
+            region: east 
+            weight: 1 
+      - name: S2 
+        cidr: 192.168.46.0/24 
+        servers: 
+          - name: A3 
+            image: zecaro/php-info 
+            vcpu: 1 
+            mem: 1024m 
+            region: east 
+            weight: 1 
+          - name: A4 
             image: zecaro/php-info 
             vcpu: 1 
             mem: 1024m 
