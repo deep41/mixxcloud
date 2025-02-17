@@ -99,7 +99,27 @@ Tenant_name:
 ```
 
 *Explanation:*  
-This YAML file defines a tenant (T1) with a single VPC (V1). Inside V1, a load balancer named "app" of type IaaS is created. A subnet (S1) with the specified CIDR block hosts two server instances. Each instance includes details like image, CPU, memory, region, and a weight value used for load balancing.
+This YAML example defines a complete tenant infrastructure in a single file:
+
+- **Tenant Level:**  
+  The top-level key (here, "Tenant_name") represents the tenant.
+
+- **VPC Definition:**  
+  Under the tenant, "VPC_name" defines a Virtual Private Cloud that contains:
+  - A load balancer (`lb`) named "app" using the IAAS model.
+  - Multiple subnets.
+
+- **Subnet S1:**  
+  - **CIDR:** 192.168.45.0/24  
+  - **Servers:**  
+    - **A1 and A2:** Each server uses the "zecaro/php-info" image, has 1 vCPU, 1024 MB of memory, is deployed in the east region, and is assigned a weight of 1 for load balancing.
+
+- **Subnet S2:**  
+  - **CIDR:** 192.168.46.0/24  
+  - **Servers:**  
+    - **A3 and A4:** Configured similarly to servers A1 and A2.
+
+Overall, this structure enables you to automatically create a tenant’s environment with a VPC that includes a load balancer and two subnets, each hosting a set of servers. The weight values help determine how traffic is balanced across the servers in each subnet.
 
 ## Database and Logging
 
